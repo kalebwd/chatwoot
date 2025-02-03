@@ -1,107 +1,16 @@
 .app-rtl--wrapper {
   direction: rtl;
 
-  // Primary sidebar
-  .primary--sidebar {
-    border-left: 1px solid var(--s-50);
-    border-right: 0;
-
-    .options-menu.dropdown-pane {
-      right: var(--space-smaller);
-
-      .auto-offline--toggle {
-        padding: var(--space-smaller) var(--space-one) var(--space-smaller)
-          var(--space-smaller);
-      }
-    }
-  }
-
-  // Secondary sidebar
-  .secondary-sidebar {
-    .secondary-menu {
-      border-left: 1px solid var(--s-50);
-      border-right: 0;
-
-      .nested.vertical.menu {
-        align-items: flex-start;
-
-        li {
-          direction: initial;
-        }
-      }
-
-      .secondary-menu--icon {
-        margin-left: var(--space-smaller);
-        margin-right: unset;
-      }
-
-      .account-context--group .account-context--switch-group {
-        --overlay-shadow: linear-gradient(
-          to left,
-          rgba(255, 255, 255, 0) 0%,
-          rgba(255, 255, 255, 1) 50%
-        );
-        background-image: var(--overlay-shadow);
-      }
-
-      // Help center sidebar
-      .sidebar-header--wrap .header-title--wrap {
-        margin-left: unset;
-        margin-right: var(--space-small);
-      }
-    }
-  }
-
-  // Woot button
-  .button {
-    .icon--emoji + .button__content {
-      padding-left: 0;
-      padding-right: var(--space-small);
-    }
-
-    .icon--font + .button__content {
-      padding-left: 0;
-      padding-right: var(--space-small);
-    }
-
-    .icon + .button__content {
-      padding-left: 0;
-      padding-right: var(--space-small);
-    }
-  }
-
-  // Settings header
-  .settings-header {
-    .header--icon {
-      margin-left: 0;
-      margin-right: $space-small;
-    }
-  }
-
-  .settings.back-button {
-    direction: initial;
-    margin-left: var(--space-normal);
-    margin-right: var(--space-smaller);
-  }
-
-  // Settings header action button
-  .button--fixed-top {
-    left: $space-small;
-    position: fixed;
-    right: unset;
-    top: $space-small;
-  }
-
   // Woot Tabs
   .tabs-title {
     &:first-child {
-      margin-left: $space-slab;
+      margin-left: var(--space-small);
       margin-right: unset;
     }
 
     &:last-child {
       margin-left: unset;
-      margin-right: $space-slab;
+      margin-right: var(--space-small);
     }
   }
 
@@ -126,23 +35,6 @@
 
   // Conversation details
   .conversation-details-wrap {
-    .conv-header {
-      .user {
-        margin-left: var(--space-normal);
-        margin-right: unset;
-
-        .user--profile__meta {
-          margin-left: unset;
-          margin-right: $space-slab;
-        }
-      }
-
-      .actions--container .resolve-actions {
-        margin-left: unset;
-        margin-right: var(--space-small);
-      }
-    }
-
     .conversation-panel {
       // Message text
       .text-content {
@@ -190,11 +82,6 @@
       }
     }
 
-    // Conversation sidebar toggle button
-    .sidebar-toggle--button {
-      transform: rotate(180deg);
-    }
-
     // Conversation sidebar close button
     .close-button--rtl {
       transform: rotate(180deg);
@@ -233,20 +120,21 @@
         }
       }
 
+      .assignee-label {
+        margin-left: 0;
+        margin-right: var(--space-one);
+      }
+
       .show-more--button {
+        margin: unset;
         transform: rotate(180deg);
       }
     }
 
-    .search-header--wrap .search--input {
-      text-align: right;
-    }
-
-    // Secondary sidebar toggle button
-    .toggle-sidebar {
-      margin-left: 0;
-      margin-right: var(--space-minus-small);
-      transform: rotate(180deg);
+    // Basic filter dropdown
+    .basic-filter {
+      left: 0;
+      right: unset;
     }
 
     // Bulk actions
@@ -289,55 +177,10 @@
     }
   }
 
-  // Labels
-  .label {
-    direction: initial;
-  }
-
-  // Notification panel
-  .notification-wrap {
-    left: 0;
-    right: var(--space-jumbo);
-
-    .action-button {
-      margin-left: var(--space-small);
-      margin-right: 0;
-    }
-
-    .notification-content--wrap {
-      margin-left: 0;
-      margin-right: var(--space-slab);
-    }
-  }
-
   //   Help center
   .article-container .row--article-block {
     td:last-child {
       direction: initial;
-    }
-  }
-
-  .header-left-wrap .page-title {
-    margin-right: var(--space-slab) !important;
-  }
-
-  .portal-container .container {
-    margin-left: unset !important;
-    margin-right: var(--space-small);
-
-    .configuration-items--wrap {
-      margin-left: var(--space-mega);
-      margin-right: unset !important;
-    }
-
-    thead th {
-      padding-left: var(--space-one);
-      padding-right: 0;
-    }
-
-    tbody td {
-      padding-left: var(--space-one);
-      padding-right: 0;
     }
   }
 
@@ -399,20 +242,46 @@
     justify-content: flex-end;
   }
 
+  // Toggle switch
+  .toggle-button {
+    &.small {
+      span {
+        &.active {
+          transform: translate(var(--space-minus-small), var(--space-zero));
+        }
+      }
+    }
+
+    span {
+      --minus-space-one-point-five: -0.9375rem;
+
+      &.active {
+        transform: translate(
+          var(--minus-space-one-point-five),
+          var(--space-zero)
+        );
+      }
+    }
+  }
+
   // Widget builder
   .widget-builder-container .widget-preview {
     direction: initial;
   }
 
+  // Modal
+  .modal-container {
+    text-align: right;
+
+    .modal-footer {
+      button {
+        margin-left: 0;
+        margin-right: var(--space-small);
+      }
+    }
+  }
+
   // Other changes
-
-  .account-selector--wrap {
-    direction: initial;
-  }
-
-  .inbox--name {
-    direction: initial;
-  }
 
   .colorpicker--chrome {
     direction: initial;
